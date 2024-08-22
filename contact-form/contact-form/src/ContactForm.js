@@ -11,10 +11,34 @@ function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to an API)
-    console.log(formData);
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        // Optionally, show a success message to the user
+        alert('Thank you! Your message has been sent.');
+      } else {
+        console.error('Form submission failed');
+        alert('There was an error submitting the form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error submitting the form. Please try again.');
+    }
   };
 
   return (
