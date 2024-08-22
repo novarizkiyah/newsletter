@@ -14,7 +14,7 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://hsl8be1y24.execute-api.us-east-1.amazonaws.com/prod/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
