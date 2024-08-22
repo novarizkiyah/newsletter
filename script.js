@@ -4,7 +4,7 @@ document.getElementById('subscribeForm').addEventListener('submit', async (e) =>
     const messageElement = document.getElementById('message');
     
     // Replace this URL with your actual API Gateway endpoint when you have it
-    const apiUrl = 'https://9f6p27nxk3.execute-api.us-west-2.amazonaws.com/prod/subscribe';
+    // const apiUrl = 'https://9f6p27nxk3.execute-api.us-west-2.amazonaws.com/prod/subscribe';
     
     try {
         const response = await fetch(apiUrl, {
